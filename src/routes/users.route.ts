@@ -1,7 +1,8 @@
 import { Router, Request,Response, NextFunction } from "express";
 import {StatusCodes} from 'http-status-codes';
-const usersRoute = Router();
 
+
+const usersRoute = Router();
 
 
 usersRoute.get('/users', (req: Request, res: Response, next: NextFunction) =>{
@@ -28,10 +29,8 @@ usersRoute.put('/users/:uuid', (req: Request<{uuid: string}>, res: Response, nex
     res.status(StatusCodes.OK).send(modifiedUser)
 });
 
-usersRoute.delete('/users/:uuid', (req: Request<{uuid: string}>, res: Response, next: NextFunction) =>{
-    
+usersRoute.delete('/users/:uuid', (req: Request<{uuid: string}>, res: Response, next: NextFunction) =>{   
     res.sendStatus(StatusCodes.OK)
 });
-
 
 export default usersRoute;
